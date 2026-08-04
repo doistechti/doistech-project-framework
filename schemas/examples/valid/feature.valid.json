@@ -1,0 +1,34 @@
+{
+  "contract_version": "1.0",
+  "artifact_type": "feature",
+  "id": "FEAT-CORE-0001",
+  "title": "Publish community event",
+  "version": "1.0",
+  "status": "released",
+  "owner": "product-owner",
+  "author": "framework-example",
+  "approver": "product-owner",
+  "created_at": "2026-08-04",
+  "updated_at": "2026-08-04",
+  "parent_epic_id": "EPC-CORE-0001",
+  "scope": [
+    "submit event",
+    "publish approved event"
+  ],
+  "out_of_scope": [
+    "external sharing"
+  ],
+  "acceptance_criteria": [
+    {
+      "id": "AC-CORE-0001",
+      "statement": "approved event can be published"
+    }
+  ],
+  "related_business_rule_ids": [
+    "BR-CORE-0001"
+  ],
+  "related_task_ids": [
+    "TASK-CORE-0001"
+  ],
+  "release_id": "REL-CORE-0001"
+}

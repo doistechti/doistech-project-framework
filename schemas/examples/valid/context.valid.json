@@ -1,0 +1,38 @@
+{
+  "contract_version": "1.0",
+  "artifact_type": "context",
+  "id": "CTX-CORE-0001",
+  "title": "Project context snapshot",
+  "version": "1.0",
+  "status": "active",
+  "owner": "documentation-owner",
+  "author": "framework-example",
+  "approver": "product-owner",
+  "created_at": "2026-08-04",
+  "updated_at": "2026-08-04",
+  "project_id": "PRJ-CORE-0001",
+  "current_release_id": "REL-CORE-0001",
+  "summary": "release one completed and moderation feature ready",
+  "active_capability_ids": [
+    "CAP-CORE-0001"
+  ],
+  "active_epic_ids": [
+    "EPC-CORE-0001"
+  ],
+  "active_feature_ids": [
+    "FEAT-CORE-0002"
+  ],
+  "open_task_ids": [
+    "TASK-CORE-0004"
+  ],
+  "recent_decision_ids": [
+    "ADR-CORE-0001"
+  ],
+  "risk_ids": [
+    "RISK-CORE-0001"
+  ],
+  "priority_document_refs": [
+    "dpf/PROJECT-STATE.md",
+    "dpf/FEATURE.md"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "contract_version": "1.0",
+  "artifact_type": "architecture-decision",
+  "id": "ADR-CORE-0001",
+  "title": "Review before publication",
+  "version": "1.0",
+  "status": "approved",
+  "owner": "architecture-owner",
+  "author": "framework-example",
+  "approver": "architecture-owner",
+  "created_at": "2026-08-04",
+  "updated_at": "2026-08-04",
+  "context": "events must not be published without review",
+  "problem": "unreviewed publication increases community risk",
+  "options_considered": [
+    "publish directly",
+    "review before publication"
+  ],
+  "decision": "review before publication",
+  "rationale": "preserves governance and quality",
+  "consequences": [
+    "requires moderation feature"
+  ],
+  "risks": [
+    "higher operational effort"
+  ]
+}

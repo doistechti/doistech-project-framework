@@ -1,0 +1,46 @@
+name: dpf-pr
+
+on:
+  pull_request:
+    branches:
+      - main
+      - master
+
+permissions:
+  contents: read
+
+jobs:
+  quality-gate:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Prepare launcher
+        run: chmod +x dpf
+
+      - name: Collect changed files
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          mkdir -p .dpf-artifacts
+          git diff --name-only "$BASE_SHA" "$HEAD_SHA" | tee .dpf-artifacts/changed-files.txt
+
+      - name: Run PR quality gate
+        run: python3 scripts/automation/run_quality_gate.py pr --project-path . --output-dir .dpf-artifacts --changed-files-file .dpf-artifacts/changed-files.txt
+
+      - name: Upload reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: dpf-pr-artifacts
+          path: .dpf-artifacts/

@@ -1,0 +1,201 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://doistech.example/schemas/_common.schema.json",
+  "title": "DPF Common Definitions",
+  "$defs": {
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+(?:\\.[0-9]+)?$"
+    },
+    "person": {
+      "type": "string",
+      "minLength": 1
+    },
+    "idContext": {
+      "type": "string",
+      "pattern": "^[A-Z0-9]+$"
+    },
+    "genericId": {
+      "type": "string",
+      "pattern": "^[A-Z]+-[A-Z0-9]+-[0-9]{4}$"
+    },
+    "projectId": {
+      "type": "string",
+      "pattern": "^PRJ-[A-Z0-9]+-[0-9]{4}$"
+    },
+    "capabilityId": {
+      "type": "string",
+      "pattern": "^CAP-[A-Z0-9]+-[0-9]{4}$"
+    },
+    "epicId": {
+      "type": "string",
+      "pattern": "^EPC-[A-Z0-9]+-[0-9]{4}$"
+    },
+    "featureId": {
+      "type": "string",
+      "pattern": "^FEAT-[A-Z0-9]+-[0-9]{4}$"
+    },
+    "taskId": {
+      "type": "string",
+      "pattern": "^TASK-[A-Z0-9]+-[0-9]{4}$"
+    },
+    "decisionId": {
+      "type": "string",
+      "pattern": "^ADR-[A-Z0-9]+-[0-9]{4}$"
+    },
+    "releaseId": {
+      "type": "string",
+      "pattern": "^REL-[A-Z0-9]+-[0-9]{4}$"
+    },
+    "riskId": {
+      "type": "string",
+      "pattern": "^RISK-[A-Z0-9]+-[0-9]{4}$"
+    },
+    "changeRequestId": {
+      "type": "string",
+      "pattern": "^CR-[A-Z0-9]+-[0-9]{4}$"
+    },
+    "validationReportId": {
+      "type": "string",
+      "pattern": "^VAL-[A-Z0-9]+-[0-9]{4}$"
+    },
+    "contextId": {
+      "type": "string",
+      "pattern": "^(CTX|DOC)-[A-Z0-9]+-[0-9]{4}$"
+    },
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "stringArray": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "default": []
+    },
+    "referenceArray": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "default": []
+    },
+    "acceptanceCriterion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "statement"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^AC-[A-Z0-9]+-[0-9]{4}$"
+        },
+        "statement": {
+          "$ref": "#/$defs/nonEmptyString"
+        }
+      }
+    },
+    "historyEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "date",
+        "summary"
+      ],
+      "properties": {
+        "date": {
+          "$ref": "#/$defs/date"
+        },
+        "summary": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "related_release_id": {
+          "$ref": "#/$defs/releaseId"
+        }
+      }
+    },
+    "commonDocumentMetadata": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "contract_version",
+        "artifact_type",
+        "title",
+        "version",
+        "status",
+        "owner",
+        "author",
+        "approver",
+        "created_at",
+        "updated_at"
+      ],
+      "properties": {
+        "contract_version": {
+          "$ref": "#/$defs/version"
+        },
+        "artifact_type": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "title": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "version": {
+          "$ref": "#/$defs/version"
+        },
+        "status": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "priority": {
+          "type": "string",
+          "minLength": 1
+        },
+        "owner": {
+          "$ref": "#/$defs/person"
+        },
+        "author": {
+          "$ref": "#/$defs/person"
+        },
+        "approver": {
+          "$ref": "#/$defs/person"
+        },
+        "created_at": {
+          "$ref": "#/$defs/date"
+        },
+        "updated_at": {
+          "$ref": "#/$defs/date"
+        },
+        "release_id": {
+          "$ref": "#/$defs/releaseId"
+        },
+        "dependencies": {
+          "$ref": "#/$defs/referenceArray"
+        },
+        "document_refs": {
+          "$ref": "#/$defs/referenceArray"
+        },
+        "evidence_refs": {
+          "$ref": "#/$defs/referenceArray"
+        },
+        "history": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/historyEntry"
+          },
+          "default": []
+        },
+        "cancellation_reason": {
+          "$ref": "#/$defs/nonEmptyString"
+        }
+      }
+    }
+  }
+}

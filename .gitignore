@@ -1,0 +1,53 @@
+# Sistemas operacionais
+.DS_Store
+Thumbs.db
+
+# IDEs
+.idea/
+*.iml
+.vscode/
+
+# Arquivos temporários
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+logs/
+
+# Variáveis de ambiente
+.env
+.env.*
+!.env.example
+
+# Credenciais e chaves
+*.key
+*.pem
+*.p12
+*.pfx
+credentials.*
+secrets.*
+
+# Arquivos compactados
+*.zip
+*.tar
+*.tar.gz
+*.rar
+
+# Diretórios de build
+build/
+dist/
+target/
+out/
+
+# Dependências
+node_modules/
+
+# Cache
+.cache/
+.tmp/
+.dpf-artifacts/
+__pycache__/

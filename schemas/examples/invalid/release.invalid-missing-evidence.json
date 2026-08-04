@@ -1,0 +1,23 @@
+{
+  "contract_version": "1.0",
+  "artifact_type": "release",
+  "id": "REL-CORE-0001",
+  "title": "Community Event Publishing",
+  "version": "1.0",
+  "status": "released",
+  "owner": "release-owner",
+  "author": "framework-example",
+  "approver": "release-owner",
+  "created_at": "2026-08-04",
+  "updated_at": "2026-08-04",
+  "objective": "release event publishing flow",
+  "included_feature_ids": [
+    "FEAT-CORE-0001"
+  ],
+  "risks": [
+    "moderation criteria still evolving"
+  ],
+  "tests": [
+    "release validation report reviewed"
+  ]
+}

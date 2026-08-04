@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://doistech.example/schemas/decision.schema.json",
+  "title": "DPF Architecture Decision Contract",
+  "type": "object",
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "$ref": "./_common.schema.json#/$defs/commonDocumentMetadata"
+    }
+  ],
+  "required": [
+    "id",
+    "context",
+    "problem",
+    "options_considered",
+    "decision",
+    "rationale",
+    "consequences",
+    "risks"
+  ],
+  "properties": {
+    "contract_version": {
+      "$ref": "./_common.schema.json#/$defs/version"
+    },
+    "artifact_type": {
+      "const": "architecture-decision"
+    },
+    "id": {
+      "$ref": "./_common.schema.json#/$defs/decisionId"
+    },
+    "title": {
+      "$ref": "./_common.schema.json#/$defs/nonEmptyString"
+    },
+    "version": {
+      "$ref": "./_common.schema.json#/$defs/version"
+    },
+    "status": {
+      "enum": [
+        "proposed",
+        "approved",
+        "rejected",
+        "superseded",
+        "archived"
+      ]
+    },
+    "owner": {
+      "$ref": "./_common.schema.json#/$defs/person"
+    },
+    "author": {
+      "$ref": "./_common.schema.json#/$defs/person"
+    },
+    "approver": {
+      "$ref": "./_common.schema.json#/$defs/person"
+    },
+    "created_at": {
+      "$ref": "./_common.schema.json#/$defs/date"
+    },
+    "updated_at": {
+      "$ref": "./_common.schema.json#/$defs/date"
+    },
+    "context": {
+      "$ref": "./_common.schema.json#/$defs/nonEmptyString"
+    },
+    "problem": {
+      "$ref": "./_common.schema.json#/$defs/nonEmptyString"
+    },
+    "options_considered": {
+      "$ref": "./_common.schema.json#/$defs/stringArray"
+    },
+    "decision": {
+      "$ref": "./_common.schema.json#/$defs/nonEmptyString"
+    },
+    "rationale": {
+      "$ref": "./_common.schema.json#/$defs/nonEmptyString"
+    },
+    "consequences": {
+      "$ref": "./_common.schema.json#/$defs/stringArray"
+    },
+    "risks": {
+      "$ref": "./_common.schema.json#/$defs/stringArray"
+    },
+    "related_previous_decision_ids": {
+      "type": "array",
+      "items": {
+        "$ref": "./_common.schema.json#/$defs/decisionId"
+      },
+      "default": []
+    },
+    "related_feature_ids": {
+      "type": "array",
+      "items": {
+        "$ref": "./_common.schema.json#/$defs/featureId"
+      },
+      "default": []
+    },
+    "related_task_ids": {
+      "type": "array",
+      "items": {
+        "$ref": "./_common.schema.json#/$defs/taskId"
+      },
+      "default": []
+    },
+    "document_refs": {
+      "$ref": "./_common.schema.json#/$defs/referenceArray"
+    },
+    "history": {
+      "type": "array",
+      "items": {
+        "$ref": "./_common.schema.json#/$defs/historyEntry"
+      }
+    }
+  }
+}

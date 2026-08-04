@@ -1,0 +1,128 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://doistech.example/schemas/context.schema.json",
+  "title": "DPF Context Contract",
+  "type": "object",
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "$ref": "./_common.schema.json#/$defs/commonDocumentMetadata"
+    }
+  ],
+  "required": [
+    "id",
+    "project_id",
+    "summary",
+    "priority_document_refs"
+  ],
+  "properties": {
+    "contract_version": {
+      "$ref": "./_common.schema.json#/$defs/version"
+    },
+    "artifact_type": {
+      "const": "context"
+    },
+    "id": {
+      "$ref": "./_common.schema.json#/$defs/contextId"
+    },
+    "title": {
+      "$ref": "./_common.schema.json#/$defs/nonEmptyString"
+    },
+    "version": {
+      "$ref": "./_common.schema.json#/$defs/version"
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "active",
+        "superseded",
+        "archived"
+      ]
+    },
+    "owner": {
+      "$ref": "./_common.schema.json#/$defs/person"
+    },
+    "author": {
+      "$ref": "./_common.schema.json#/$defs/person"
+    },
+    "approver": {
+      "$ref": "./_common.schema.json#/$defs/person"
+    },
+    "created_at": {
+      "$ref": "./_common.schema.json#/$defs/date"
+    },
+    "updated_at": {
+      "$ref": "./_common.schema.json#/$defs/date"
+    },
+    "project_id": {
+      "$ref": "./_common.schema.json#/$defs/projectId"
+    },
+    "current_release_id": {
+      "$ref": "./_common.schema.json#/$defs/releaseId"
+    },
+    "summary": {
+      "$ref": "./_common.schema.json#/$defs/nonEmptyString"
+    },
+    "active_capability_ids": {
+      "type": "array",
+      "items": {
+        "$ref": "./_common.schema.json#/$defs/capabilityId"
+      },
+      "default": []
+    },
+    "active_epic_ids": {
+      "type": "array",
+      "items": {
+        "$ref": "./_common.schema.json#/$defs/epicId"
+      },
+      "default": []
+    },
+    "active_feature_ids": {
+      "type": "array",
+      "items": {
+        "$ref": "./_common.schema.json#/$defs/featureId"
+      },
+      "default": []
+    },
+    "open_task_ids": {
+      "type": "array",
+      "items": {
+        "$ref": "./_common.schema.json#/$defs/taskId"
+      },
+      "default": []
+    },
+    "blocked_task_ids": {
+      "type": "array",
+      "items": {
+        "$ref": "./_common.schema.json#/$defs/taskId"
+      },
+      "default": []
+    },
+    "recent_decision_ids": {
+      "type": "array",
+      "items": {
+        "$ref": "./_common.schema.json#/$defs/decisionId"
+      },
+      "default": []
+    },
+    "risk_ids": {
+      "type": "array",
+      "items": {
+        "$ref": "./_common.schema.json#/$defs/riskId"
+      },
+      "default": []
+    },
+    "priority_document_refs": {
+      "$ref": "./_common.schema.json#/$defs/referenceArray"
+    },
+    "open_questions": {
+      "$ref": "./_common.schema.json#/$defs/stringArray"
+    },
+    "history": {
+      "type": "array",
+      "items": {
+        "$ref": "./_common.schema.json#/$defs/historyEntry"
+      }
+    }
+  }
+}

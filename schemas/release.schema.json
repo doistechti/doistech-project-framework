@@ -1,0 +1,127 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://doistech.example/schemas/release.schema.json",
+  "title": "DPF Release Contract",
+  "type": "object",
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "$ref": "./_common.schema.json#/$defs/commonDocumentMetadata"
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "canceled"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "cancellation_reason"
+        ]
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "objective",
+    "included_feature_ids",
+    "risks",
+    "tests",
+    "evidence_refs"
+  ],
+  "properties": {
+    "contract_version": {
+      "$ref": "./_common.schema.json#/$defs/version"
+    },
+    "artifact_type": {
+      "const": "release"
+    },
+    "id": {
+      "$ref": "./_common.schema.json#/$defs/releaseId"
+    },
+    "title": {
+      "$ref": "./_common.schema.json#/$defs/nonEmptyString"
+    },
+    "version": {
+      "$ref": "./_common.schema.json#/$defs/version"
+    },
+    "status": {
+      "enum": [
+        "planned",
+        "ready",
+        "approved",
+        "released",
+        "rolled-back",
+        "canceled",
+        "archived"
+      ]
+    },
+    "owner": {
+      "$ref": "./_common.schema.json#/$defs/person"
+    },
+    "author": {
+      "$ref": "./_common.schema.json#/$defs/person"
+    },
+    "approver": {
+      "$ref": "./_common.schema.json#/$defs/person"
+    },
+    "created_at": {
+      "$ref": "./_common.schema.json#/$defs/date"
+    },
+    "updated_at": {
+      "$ref": "./_common.schema.json#/$defs/date"
+    },
+    "product_version": {
+      "type": "string"
+    },
+    "objective": {
+      "$ref": "./_common.schema.json#/$defs/nonEmptyString"
+    },
+    "included_feature_ids": {
+      "type": "array",
+      "items": {
+        "$ref": "./_common.schema.json#/$defs/featureId"
+      },
+      "minItems": 1
+    },
+    "related_task_ids": {
+      "type": "array",
+      "items": {
+        "$ref": "./_common.schema.json#/$defs/taskId"
+      },
+      "default": []
+    },
+    "risks": {
+      "$ref": "./_common.schema.json#/$defs/stringArray"
+    },
+    "tests": {
+      "$ref": "./_common.schema.json#/$defs/stringArray"
+    },
+    "evidence_refs": {
+      "$ref": "./_common.schema.json#/$defs/referenceArray"
+    },
+    "rollback_plan": {
+      "type": "string"
+    },
+    "planned_date": {
+      "$ref": "./_common.schema.json#/$defs/date"
+    },
+    "effective_date": {
+      "$ref": "./_common.schema.json#/$defs/date"
+    },
+    "document_refs": {
+      "$ref": "./_common.schema.json#/$defs/referenceArray"
+    },
+    "history": {
+      "type": "array",
+      "items": {
+        "$ref": "./_common.schema.json#/$defs/historyEntry"
+      }
+    },
+    "cancellation_reason": {
+      "$ref": "./_common.schema.json#/$defs/nonEmptyString"
+    }
+  }
+}

@@ -1,0 +1,43 @@
+name: dpf-release-preparation
+
+on:
+  workflow_dispatch:
+    inputs:
+      project_path:
+        description: Caminho do projeto DPF a validar
+        required: false
+        default: .
+      release_doc:
+        description: Caminho do documento de release
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  release-preparation:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Prepare launcher
+        run: chmod +x dpf
+
+      - name: Run release preparation gate
+        run: python3 scripts/automation/run_quality_gate.py release --project-path "${{ inputs.project_path }}" --release-doc "${{ inputs.release_doc }}" --output-dir .dpf-artifacts
+
+      - name: Upload reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: dpf-release-artifacts
+          path: .dpf-artifacts/

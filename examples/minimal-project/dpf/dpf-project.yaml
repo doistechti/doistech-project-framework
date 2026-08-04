@@ -1,0 +1,10 @@
+project_id: PRJ-TN-0001
+project_name: Task Notes
+dpf_version: 1.0
+structure_version: 1.0
+prompt_spec_version: 1.0
+size_profile: small
+project_state: dpf/PROJECT-STATE.md
+capabilities_path: dpf/capabilities
+release_index: dpf/RELEASES.md
+decision_index: dpf/decisions/DECISIONS.md

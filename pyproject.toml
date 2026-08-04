@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "doistech-project-framework"
+version = "0.1.0"
+description = "CLI and validator for the DoisTech Project Framework"
+readme = "README.md"
+requires-python = ">=3.11"
+
+[project.scripts]
+dpf = "dpf_cli.cli:main"
+
+[tool.setuptools]
+packages = ["dpf_validator", "dpf_cli"]

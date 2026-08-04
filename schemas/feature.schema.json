@@ -1,0 +1,138 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://doistech.example/schemas/feature.schema.json",
+  "title": "DPF Feature Contract",
+  "type": "object",
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "$ref": "./_common.schema.json#/$defs/commonDocumentMetadata"
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "canceled"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "cancellation_reason"
+        ]
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "parent_epic_id",
+    "acceptance_criteria",
+    "scope",
+    "out_of_scope"
+  ],
+  "properties": {
+    "contract_version": {
+      "$ref": "./_common.schema.json#/$defs/version"
+    },
+    "artifact_type": {
+      "const": "feature"
+    },
+    "id": {
+      "$ref": "./_common.schema.json#/$defs/featureId"
+    },
+    "title": {
+      "$ref": "./_common.schema.json#/$defs/nonEmptyString"
+    },
+    "version": {
+      "$ref": "./_common.schema.json#/$defs/version"
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "ready",
+        "active",
+        "blocked",
+        "implemented",
+        "validated",
+        "released",
+        "canceled",
+        "archived"
+      ]
+    },
+    "priority": {
+      "type": "string"
+    },
+    "owner": {
+      "$ref": "./_common.schema.json#/$defs/person"
+    },
+    "author": {
+      "$ref": "./_common.schema.json#/$defs/person"
+    },
+    "approver": {
+      "$ref": "./_common.schema.json#/$defs/person"
+    },
+    "created_at": {
+      "$ref": "./_common.schema.json#/$defs/date"
+    },
+    "updated_at": {
+      "$ref": "./_common.schema.json#/$defs/date"
+    },
+    "parent_epic_id": {
+      "$ref": "./_common.schema.json#/$defs/epicId"
+    },
+    "scope": {
+      "$ref": "./_common.schema.json#/$defs/stringArray"
+    },
+    "out_of_scope": {
+      "$ref": "./_common.schema.json#/$defs/stringArray"
+    },
+    "acceptance_criteria": {
+      "type": "array",
+      "items": {
+        "$ref": "./_common.schema.json#/$defs/acceptanceCriterion"
+      },
+      "minItems": 1
+    },
+    "related_requirement_ids": {
+      "$ref": "./_common.schema.json#/$defs/referenceArray"
+    },
+    "related_business_rule_ids": {
+      "$ref": "./_common.schema.json#/$defs/referenceArray"
+    },
+    "related_decision_ids": {
+      "type": "array",
+      "items": {
+        "$ref": "./_common.schema.json#/$defs/decisionId"
+      },
+      "default": []
+    },
+    "related_task_ids": {
+      "type": "array",
+      "items": {
+        "$ref": "./_common.schema.json#/$defs/taskId"
+      },
+      "default": []
+    },
+    "dependencies": {
+      "$ref": "./_common.schema.json#/$defs/referenceArray"
+    },
+    "release_id": {
+      "$ref": "./_common.schema.json#/$defs/releaseId"
+    },
+    "document_refs": {
+      "$ref": "./_common.schema.json#/$defs/referenceArray"
+    },
+    "evidence_refs": {
+      "$ref": "./_common.schema.json#/$defs/referenceArray"
+    },
+    "history": {
+      "type": "array",
+      "items": {
+        "$ref": "./_common.schema.json#/$defs/historyEntry"
+      }
+    },
+    "cancellation_reason": {
+      "$ref": "./_common.schema.json#/$defs/nonEmptyString"
+    }
+  }
+}

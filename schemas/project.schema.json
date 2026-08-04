@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://doistech.example/schemas/project.schema.json",
+  "title": "DPF Project Contract",
+  "type": "object",
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "$ref": "./_common.schema.json#/$defs/commonDocumentMetadata"
+    }
+  ],
+  "required": [
+    "id",
+    "project_state_ref",
+    "scope",
+    "out_of_scope",
+    "stakeholders",
+    "capabilities"
+  ],
+  "properties": {
+    "contract_version": {
+      "$ref": "./_common.schema.json#/$defs/version"
+    },
+    "artifact_type": {
+      "const": "project"
+    },
+    "id": {
+      "$ref": "./_common.schema.json#/$defs/projectId"
+    },
+    "title": {
+      "$ref": "./_common.schema.json#/$defs/nonEmptyString"
+    },
+    "version": {
+      "$ref": "./_common.schema.json#/$defs/version"
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "active",
+        "superseded",
+        "archived"
+      ]
+    },
+    "priority": {
+      "type": "string"
+    },
+    "owner": {
+      "$ref": "./_common.schema.json#/$defs/person"
+    },
+    "author": {
+      "$ref": "./_common.schema.json#/$defs/person"
+    },
+    "approver": {
+      "$ref": "./_common.schema.json#/$defs/person"
+    },
+    "created_at": {
+      "$ref": "./_common.schema.json#/$defs/date"
+    },
+    "updated_at": {
+      "$ref": "./_common.schema.json#/$defs/date"
+    },
+    "scope": {
+      "$ref": "./_common.schema.json#/$defs/stringArray"
+    },
+    "out_of_scope": {
+      "$ref": "./_common.schema.json#/$defs/stringArray"
+    },
+    "stakeholders": {
+      "$ref": "./_common.schema.json#/$defs/stringArray"
+    },
+    "capabilities": {
+      "type": "array",
+      "items": {
+        "$ref": "./_common.schema.json#/$defs/capabilityId"
+      },
+      "minItems": 1
+    },
+    "project_state_ref": {
+      "$ref": "./_common.schema.json#/$defs/nonEmptyString"
+    },
+    "release_id": {
+      "$ref": "./_common.schema.json#/$defs/releaseId"
+    },
+    "dependencies": {
+      "$ref": "./_common.schema.json#/$defs/referenceArray"
+    },
+    "document_refs": {
+      "$ref": "./_common.schema.json#/$defs/referenceArray"
+    },
+    "history": {
+      "type": "array",
+      "items": {
+        "$ref": "./_common.schema.json#/$defs/historyEntry"
+      }
+    }
+  }
+}

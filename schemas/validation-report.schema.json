@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://doistech.example/schemas/validation-report.schema.json",
+  "title": "DPF Validation Report Contract",
+  "type": "object",
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "$ref": "./_common.schema.json#/$defs/commonDocumentMetadata"
+    }
+  ],
+  "required": [
+    "id",
+    "subject_type",
+    "subject_ids",
+    "validation_result",
+    "criteria_checked",
+    "evidence_refs"
+  ],
+  "properties": {
+    "contract_version": {
+      "$ref": "./_common.schema.json#/$defs/version"
+    },
+    "artifact_type": {
+      "const": "validation-report"
+    },
+    "id": {
+      "$ref": "./_common.schema.json#/$defs/validationReportId"
+    },
+    "title": {
+      "$ref": "./_common.schema.json#/$defs/nonEmptyString"
+    },
+    "version": {
+      "$ref": "./_common.schema.json#/$defs/version"
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "active",
+        "superseded",
+        "archived"
+      ]
+    },
+    "owner": {
+      "$ref": "./_common.schema.json#/$defs/person"
+    },
+    "author": {
+      "$ref": "./_common.schema.json#/$defs/person"
+    },
+    "approver": {
+      "$ref": "./_common.schema.json#/$defs/person"
+    },
+    "created_at": {
+      "$ref": "./_common.schema.json#/$defs/date"
+    },
+    "updated_at": {
+      "$ref": "./_common.schema.json#/$defs/date"
+    },
+    "subject_type": {
+      "type": "string",
+      "enum": [
+        "task",
+        "feature",
+        "release",
+        "project"
+      ]
+    },
+    "subject_ids": {
+      "$ref": "./_common.schema.json#/$defs/referenceArray"
+    },
+    "validation_result": {
+      "$ref": "./_common.schema.json#/$defs/nonEmptyString"
+    },
+    "criteria_checked": {
+      "$ref": "./_common.schema.json#/$defs/stringArray"
+    },
+    "criteria_not_met": {
+      "$ref": "./_common.schema.json#/$defs/stringArray"
+    },
+    "evidence_refs": {
+      "$ref": "./_common.schema.json#/$defs/referenceArray"
+    },
+    "related_release_id": {
+      "$ref": "./_common.schema.json#/$defs/releaseId"
+    },
+    "document_refs": {
+      "$ref": "./_common.schema.json#/$defs/referenceArray"
+    },
+    "history": {
+      "type": "array",
+      "items": {
+        "$ref": "./_common.schema.json#/$defs/historyEntry"
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "contract_version": "1.0",
+  "artifact_type": "task",
+  "id": "TASK-CORE-0001",
+  "title": "Structure event submission",
+  "version": "1.0",
+  "status": "done",
+  "owner": "delivery-owner",
+  "author": "framework-example",
+  "approver": "product-owner",
+  "created_at": "2026-08-04",
+  "updated_at": "2026-08-04",
+  "parent_feature_id": "FEAT-CORE-0001",
+  "objective": "Define the conceptual event submission flow",
+  "scope": [
+    "submission path"
+  ],
+  "out_of_scope": [
+    "moderation"
+  ],
+  "inputs": [
+    "feature specification"
+  ],
+  "outputs": [
+    "updated task record"
+  ],
+  "validation_criteria": [
+    "task objective covered"
+  ],
+  "tests": [
+    "documented review of flow"
+  ],
+  "definition_of_ready": [
+    "feature available"
+  ],
+  "definition_of_done": [
+    "evidence recorded"
+  ]
+}
