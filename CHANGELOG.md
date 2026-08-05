@@ -41,6 +41,7 @@ O formato será baseado em versões e categorias de mudança.
 - atualização do README principal com o estado consolidado das Fases 1 a 10;
 - referência interna da ordem de execução das Fases 5 a 10.
 - materialização da biblioteca operacional mínima de templates em `templates/`.
+- política formal de versionamento do repositório, da especificação e da CLI.
 
 ### Alterado
 
