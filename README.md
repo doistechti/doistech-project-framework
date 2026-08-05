@@ -97,11 +97,12 @@ Versões atualmente distintas no repositório:
 
 - especificação metodológica do DPF: `v1.0`
 - CLI oficial local: `0.1.0`
-- release oficial estável do repositório: ainda não publicada
+- release oficial do repositório: `0.1.0`
 
 Política formal:
 
 - [Versioning Policy](/Users/doistechti/Projetos/DOISTECH/doistech-project-framework/docs/governance/VERSIONING-POLICY.md)
+- [Release 0.1.0 Notes](/Users/doistechti/Projetos/DOISTECH/doistech-project-framework/docs/reference/RELEASE-0.1.0-NOTES.md)
 
 ## Status
 
