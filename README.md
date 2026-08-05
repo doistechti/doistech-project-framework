@@ -1,16 +1,53 @@
 # DoisTech Project Framework — DPF
 
-O DoisTech Project Framework é uma metodologia de engenharia de software
-criada para projetos desenvolvidos de forma colaborativa por pessoas e
-agentes de Inteligência Artificial.
+O DoisTech Project Framework é um framework de engenharia de software para
+projetos desenvolvidos de forma colaborativa por pessoas e agentes de
+Inteligência Artificial.
 
-O DPF busca estabelecer uma forma padronizada, rastreável e segura de
-planejar, especificar, implementar, validar e evoluir projetos de software
-assistidos por agentes de IA.
+O DPF define uma estrutura clara para transformar contexto, documentação,
+planejamento, execução e validação em um fluxo rastreável, previsível e
+seguro.
+
+## Visão geral
+
+Projetos com uso de IA costumam sofrer com perda de contexto, decisões mal
+registradas, mudanças sem rastreabilidade e documentação desalinhada da
+implementação.
+
+O DPF foi criado para resolver esse problema com uma abordagem
+documentation-first, orientada por contexto e preparada para colaboração
+entre humanos e agentes.
+
+Em vez de tratar IA como um atalho isolado, o framework a incorpora como
+parte do processo de engenharia, com regras, limites, contratos e artefatos
+claros.
+
+## O que o DPF oferece
+
+O repositório reúne os componentes centrais do framework:
+
+- especificação oficial da metodologia;
+- estrutura oficial para projetos DPF;
+- biblioteca oficial de templates;
+- prompts operacionais para agentes;
+- projetos de referência;
+- schemas de validação;
+- validador oficial;
+- CLI oficial;
+- base inicial de automação.
+
+## Problemas que o DPF ajuda a resolver
+
+- perda de contexto durante o desenvolvimento;
+- execução por IA sem escopo claramente definido;
+- decisões espalhadas ou não documentadas;
+- dificuldade de rastrear Features, Tasks e Releases;
+- inconsistência entre documentação e implementação;
+- baixa previsibilidade em fluxos colaborativos entre humanos e agentes.
 
 ## Princípios
 
-O DPF adota os seguintes princípios fundamentais:
+O DPF é baseado nos seguintes princípios:
 
 - Specification First
 - Documentation as Source of Truth
@@ -18,31 +55,49 @@ O DPF adota os seguintes princípios fundamentais:
 - AI Native
 - Modularidade
 - Evolução Incremental
+- Human Accountability
+- Least Necessary Change
+- Traceability by Design
 
-## Objetivos
+## Como funciona
 
-O framework tem como objetivos:
+O framework organiza o projeto com base na hierarquia oficial:
 
-- organizar a colaboração entre humanos e agentes de IA;
-- reduzir perda de contexto durante o desenvolvimento;
-- transformar especificações em unidades rastreáveis de trabalho;
-- estabelecer limites claros para execução por agentes;
-- manter documentação e implementação sincronizadas;
-- favorecer evolução incremental e controlada;
-- permitir auditoria de decisões, alterações e entregas.
+```text
+Projeto
+└── Capability
+    └── Epic
+        └── Feature
+            └── Task
+```
 
-## Estrutura do repositório
+A partir dessa estrutura, o DPF define:
 
-- `docs/`: especificação, governança, arquitetura conceitual e guias;
-- `templates/`: modelos reutilizáveis para projetos DPF;
-- `prompts/`: prompts oficiais para agentes de IA;
-- `examples/`: projetos de referência;
-- `schemas/`: contratos para validação estrutural dos documentos;
-- `scripts/`: futuras ferramentas e automações.
+- onde cada artefato deve existir;
+- como ele deve ser identificado;
+- como se relaciona com os demais;
+- quais estados são válidos;
+- como agentes devem consumir contexto;
+- como validar consistência documental e estrutural.
 
-## Início rápido da CLI
+## Casos de uso
 
-Em modo de desenvolvimento:
+O DPF pode ser usado em projetos como:
+
+- APIs;
+- aplicações web;
+- produtos SaaS;
+- aplicativos mobile;
+- integrações;
+- automações;
+- bibliotecas;
+- modernização de sistemas legados;
+- produtos internos;
+- projetos conduzidos com apoio de agentes de IA.
+
+## Início rápido
+
+### Explorar a CLI
 
 ```bash
 ./dpf --help
@@ -50,67 +105,67 @@ Em modo de desenvolvimento:
 python -m dpf_cli --help
 ```
 
-Instalação local editável:
-
-```bash
-pip install -e . --no-build-isolation
-```
-
-Fluxo mínimo:
+### Inicializar um projeto DPF
 
 ```bash
 ./dpf init --path ./meu-projeto --name "Meu Projeto" --context MPRJ
+```
+
+### Validar um projeto
+
+```bash
 ./dpf validate ./meu-projeto
+```
+
+### Ler o status documental do projeto
+
+```bash
 ./dpf status --path ./meu-projeto
 ```
 
-## Estado atual
-
-O projeto já possui sua primeira cadeia operacional consolidada da Fase 1 à Fase 10.
-
-Fases implementadas ou consolidadas no repositório:
-
-1. especificação oficial da metodologia;
-2. biblioteca oficial de templates em nível normativo e operacional mínimo;
-3. estrutura oficial dos projetos;
-4. biblioteca oficial de prompts e contratos para agentes;
-5. projetos oficiais de referência;
-6. biblioteca operacional de prompts;
-7. contratos e schemas;
-8. validador oficial;
-9. CLI oficial;
-10. integração e automação.
-
-Referência operacional das fases 5 a 10:
-
-- [Phases 05-10 Execution Order](/Users/doistechti/Projetos/DOISTECH/doistech-project-framework/docs/reference/PHASES-05-10-EXECUTION-ORDER.md)
-
-## Versão
-
-Versão inicial em desenvolvimento:
+## Estrutura do repositório
 
 ```text
-DPF Specification v1.0
+docs/           documentação oficial do framework
+templates/      templates oficiais
+prompts/        prompts e contratos para agentes
+examples/       projetos de referência
+schemas/        contratos e schemas de validação
+scripts/        automações e quality gates
+dpf_cli/        CLI oficial
+dpf_validator/  validador oficial
 ```
 
-Versões atualmente distintas no repositório:
+## Documentação principal
 
-- especificação metodológica do DPF: `v1.0`
-- CLI oficial local: `0.1.0`
-- release oficial do repositório: `0.1.0`
-
-Política formal:
-
+- [DPF Specification v1.0](/Users/doistechti/Projetos/DOISTECH/doistech-project-framework/docs/specification/DPF-SPECIFICATION-v1.0.md)
+- [DPF Templates Specification v1.0](/Users/doistechti/Projetos/DOISTECH/doistech-project-framework/docs/specification/DPF-TEMPLATES-SPECIFICATION-v1.0.md)
+- [DPF Project Structure](/Users/doistechti/Projetos/DOISTECH/doistech-project-framework/docs/architecture/DPF-PROJECT-STRUCTURE.md)
+- [CLI Usage Guide](/Users/doistechti/Projetos/DOISTECH/doistech-project-framework/docs/guides/CLI-USAGE-GUIDE.md)
+- [Validator Usage Guide](/Users/doistechti/Projetos/DOISTECH/doistech-project-framework/docs/guides/VALIDATOR-USAGE-GUIDE.md)
 - [Versioning Policy](/Users/doistechti/Projetos/DOISTECH/doistech-project-framework/docs/governance/VERSIONING-POLICY.md)
 - [Release 0.1.0 Notes](/Users/doistechti/Projetos/DOISTECH/doistech-project-framework/docs/reference/RELEASE-0.1.0-NOTES.md)
 
-## Status
+## Status do projeto
 
-```text
-Base operacional implementada
-```
+Estado atual do repositório:
+
+- especificação metodológica vigente: `DPF Specification v1.0`
+- CLI oficial local: `0.1.0`
+- release atual do repositório: `0.1.0`
+
+O projeto já possui uma base operacional funcional para estruturação,
+validação e apoio à execução de projetos com DPF.
+
+## Posicionamento do projeto
+
+Este repositório tem dois papéis ao mesmo tempo:
+
+- framework open-source para organização de projetos com IA;
+- base pública de referência do trabalho da DoisTech em engenharia de
+  software assistida por agentes.
 
 ## Licença
 
-A licença oficial será definida antes da publicação da primeira versão estável.
-# doistech-project-framework
+A licença final do projeto ainda está em definição.
+Até sua publicação oficial, consulte o arquivo `LICENSE` do repositório.
